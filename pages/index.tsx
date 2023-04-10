@@ -7,31 +7,23 @@ import {
   ListItemButton,
   ListItemContent,
   ListItemDecorator,
+  ListSubheader,
   Typography,
 } from "@mui/joy";
 import { useState } from "react";
 
-import { IDGeneratorTool } from "@/components/tools/IDGeneratorTool";
-
-const tools = {
-  [IDGeneratorTool.name]: IDGeneratorTool,
-};
+import { useToolset } from "@/components/hooks/useToolset";
 
 export default function Home() {
   const [selected, setSelected] = useState("");
   const [search, setSearch] = useState("");
+  const allToolset = useToolset();
 
-  const selectedTool = selected ? tools[selected] : undefined;
-
-  const filteredTools =
+  const selectedTool = allToolset.byName(selected);
+  const byCategory =
     search.length > 0
-      ? Object.values(tools).filter((t) => {
-          return (
-            t.name.toLowerCase().includes(search.toLowerCase()) ||
-            t.description.toLowerCase().includes(search.toLowerCase())
-          );
-        })
-      : Object.values(tools);
+      ? allToolset.search(search).byCategory()
+      : allToolset.byCategory();
 
   return (
     <>
@@ -47,21 +39,26 @@ export default function Home() {
                 />
               </ListItemContent>
             </ListItem>
-            {filteredTools.map((tool) => (
-              <ListItem key={tool.name}>
-                <ListItemButton
-                  onClick={() => setSelected(tool.name)}
-                  selected={selected === tool.name}
-                >
-                  <ListItemDecorator>
-                    <tool.icon />
-                  </ListItemDecorator>
-                  <ListItemContent>
-                    <Typography>{tool.name}</Typography>
-                  </ListItemContent>
-                  <KeyboardArrowRightOutlined />
-                </ListItemButton>
-              </ListItem>
+            {byCategory.map((category) => (
+              <>
+                <ListSubheader>{category.category}</ListSubheader>
+                {Object.values(category.tools).map((t) => (
+                  <ListItem key={t.name}>
+                    <ListItemButton
+                      onClick={() => setSelected(t.name)}
+                      selected={selected === t.name}
+                    >
+                      <ListItemDecorator>
+                        <t.icon />
+                      </ListItemDecorator>
+                      <ListItemContent>
+                        <Typography>{t.name}</Typography>
+                      </ListItemContent>
+                      <KeyboardArrowRightOutlined />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </>
             ))}
           </List>
         </div>
@@ -82,7 +79,8 @@ export default function Home() {
         .sidebar {
           display: flex;
           flex-direction: column;
-          max-width: 250px;
+          width: 300px;
+          max-width: 300px;
         }
         .content {
           padding: 32px;

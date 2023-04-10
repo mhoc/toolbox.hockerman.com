@@ -1,7 +1,18 @@
 import { FingerprintOutlined } from "@mui/icons-material";
-import { Button, Slider, Typography } from "@mui/joy";
+import { Button, Slider, Sheet, Typography } from "@mui/joy";
 import * as nanoid from "nanoid";
 import { useState } from "react";
+
+import { Tool } from "./Tool";
+
+const generatorSheetSx = {
+  alignItems: "center",
+  display: "flex",
+  flexDirection: "row",
+  m: 1,
+  p: 4,
+  minWidth: "600px",
+};
 
 const IDGeneratorToolComponent = () => {
   const [gUuidv4, setGUuidv4] = useState(crypto.randomUUID());
@@ -20,13 +31,13 @@ const IDGeneratorToolComponent = () => {
   return (
     <>
       <div className="root">
-        <div className="generator">
+        <Sheet sx={generatorSheetSx} variant="outlined">
           <Button onClick={genUUIDv4} sx={{ mr: 2 }}>
             UUIDv4
           </Button>
           <Typography sx={{ fontFamily: "monospace" }}>{gUuidv4}</Typography>
-        </div>
-        <div className="generator">
+        </Sheet>
+        <Sheet sx={generatorSheetSx} variant="outlined">
           <Button onClick={() => genNanoid(nanoidLength)} sx={{ mr: 2 }}>
             nanoid
           </Button>
@@ -43,7 +54,7 @@ const IDGeneratorToolComponent = () => {
             sx={{ mr: 2, width: "150px" }}
           />
           <Typography sx={{ fontFamily: "monospace" }}>{gNanoid}</Typography>
-        </div>
+        </Sheet>
       </div>
       <style jsx>{`
         .root {
@@ -54,15 +65,17 @@ const IDGeneratorToolComponent = () => {
           display: flex;
           flex-direction: row;
           margin-bottom: 24px;
+          padding: 24px;
         }
       `}</style>
     </>
   );
 };
 
-export const IDGeneratorTool = {
+export const IDGeneratorTool: Tool = {
+  category: "Randomness",
   component: IDGeneratorToolComponent,
-  description: "Generate random IDs",
+  description: "generate a random ID",
   icon: FingerprintOutlined,
-  name: "Generate Random ID",
+  name: "Random ID",
 };

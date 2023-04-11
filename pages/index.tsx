@@ -1,7 +1,6 @@
 import { KeyboardArrowRightOutlined, GitHub } from "@mui/icons-material";
 import {
   Box,
-  Button,
   Divider,
   Input,
   List,
@@ -15,10 +14,12 @@ import {
 import { useState } from "react";
 
 import { useToolset } from "@/components/hooks/useToolset";
+import { PrivacyModal } from "@/components/layouts/PrivacyModal";
 
 export default function Home() {
   const [selected, setSelected] = useState("");
   const [search, setSearch] = useState("");
+  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const allToolset = useToolset();
 
   const selectedTool = allToolset.byName(selected);
@@ -76,13 +77,23 @@ export default function Home() {
               <Typography level="body3">
                 Made with <Typography color="danger">{"<3"}</Typography>
                 {" by "}
-                <a href="https://hockerman.com">
+                <a
+                  href="https://hockerman.com"
+                  style={{ textDecoration: "none" }}
+                >
                   <Typography color="primary">hockerman.com</Typography>
                 </a>
               </Typography>
               <Typography level="body3">in Indianapolis, IN</Typography>
+              <ListItemButton
+                onClick={() => setPrivacyModalOpen(true)}
+                sx={{ width: "70px" }}
+              >
+                <Typography color="primary" level="body4">
+                  Your Privacy
+                </Typography>
+              </ListItemButton>
             </Box>
-
             <Box sx={{ flexGrow: 1 }} />
             <Typography color="neutral">
               <GitHub />
@@ -96,6 +107,10 @@ export default function Home() {
           </div>
         )}
       </div>
+      <PrivacyModal
+        onClose={() => setPrivacyModalOpen(false)}
+        open={privacyModalOpen}
+      />
       <style jsx>{`
         .root {
           display: flex;

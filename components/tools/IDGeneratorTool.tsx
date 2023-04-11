@@ -9,8 +9,8 @@ const generatorSheetSx = {
   alignItems: "center",
   display: "flex",
   flexDirection: "row",
-  m: 1,
-  p: 4,
+  mb: 1,
+  p: 2,
   minWidth: "600px",
 };
 
@@ -29,46 +29,34 @@ const IDGeneratorToolComponent = () => {
   };
 
   return (
-    <>
-      <div className="root">
-        <Sheet sx={generatorSheetSx} variant="outlined">
-          <Button onClick={genUUIDv4} sx={{ mr: 2 }}>
-            UUIDv4
-          </Button>
-          <Typography sx={{ fontFamily: "monospace" }}>{gUuidv4}</Typography>
-        </Sheet>
-        <Sheet sx={generatorSheetSx} variant="outlined">
-          <Button onClick={() => genNanoid(nanoidLength)} sx={{ mr: 2 }}>
-            nanoid
-          </Button>
-          <Slider
-            defaultValue={8}
-            max={24}
-            min={2}
-            onChange={(e: any) => {
-              setNanoidLength(e.target.value);
-              genNanoid(e.target.value);
-            }}
-            value={nanoidLength}
-            valueLabelDisplay="on"
-            sx={{ mr: 2, width: "150px" }}
-          />
-          <Typography sx={{ fontFamily: "monospace" }}>{gNanoid}</Typography>
-        </Sheet>
-      </div>
-      <style jsx>{`
-        .root {
-          width: 100%;
-        }
-        .generator {
-          align-items: center;
-          display: flex;
-          flex-direction: row;
-          margin-bottom: 24px;
-          padding: 24px;
-        }
-      `}</style>
-    </>
+    <div style={{ width: "100%" }}>
+      <Sheet sx={generatorSheetSx} variant="outlined">
+        <Button onClick={genUUIDv4} sx={{ mr: 2 }}>
+          UUIDv4
+        </Button>
+        <Typography sx={{ fontFamily: "monospace" }}>{gUuidv4}</Typography>
+      </Sheet>
+      <Sheet sx={generatorSheetSx} variant="outlined">
+        <Button onClick={() => genNanoid(nanoidLength)} sx={{ mr: 2 }}>
+          nanoid
+        </Button>
+        <Slider
+          defaultValue={8}
+          max={32}
+          min={1}
+          onChange={(e: any) => {
+            setNanoidLength(e.target.value);
+            genNanoid(e.target.value);
+          }}
+          value={nanoidLength}
+          sx={{ mr: 1, width: "150px" }}
+        />
+        <Typography color="neutral" sx={{ mr: 2 }}>
+          ({nanoidLength})
+        </Typography>
+        <Typography sx={{ fontFamily: "monospace" }}>{gNanoid}</Typography>
+      </Sheet>
+    </div>
   );
 };
 

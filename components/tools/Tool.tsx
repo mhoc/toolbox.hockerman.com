@@ -1,6 +1,6 @@
 import { BaseEncodingTool } from "./BaseEncodingTool";
 import { IDGeneratorTool } from "./IDGeneratorTool";
-import { JWTDecoderTool } from "./JWTDecoderTool";
+import { JWT } from "./JWT";
 
 export interface Tool {
   category: string;
@@ -18,7 +18,7 @@ export interface Category {
 export class Toolset {
   public static readonly ALL_TOOLS: Tool[] = [
     BaseEncodingTool,
-    JWTDecoderTool,
+    JWT,
     IDGeneratorTool,
   ];
 

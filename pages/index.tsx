@@ -1,5 +1,7 @@
-import { KeyboardArrowRightOutlined } from "@mui/icons-material";
+import { KeyboardArrowRightOutlined, GitHub } from "@mui/icons-material";
 import {
+  Box,
+  Button,
   Divider,
   Input,
   List,
@@ -61,6 +63,31 @@ export default function Home() {
               </>
             ))}
           </List>
+          <Divider />
+          <Box
+            sx={{
+              alignItems: "center",
+              display: "flex",
+              flexDirection: "row",
+              p: 2,
+            }}
+          >
+            <Box>
+              <Typography level="body3">
+                Made with <Typography color="danger">{"<3"}</Typography>
+                {" by "}
+                <a href="https://hockerman.com">
+                  <Typography color="primary">hockerman.com</Typography>
+                </a>
+              </Typography>
+              <Typography level="body3">in Indianapolis, IN</Typography>
+            </Box>
+
+            <Box sx={{ flexGrow: 1 }} />
+            <Typography color="neutral">
+              <GitHub />
+            </Typography>
+          </Box>
         </div>
         <Divider orientation="vertical" />
         {selectedTool && (
@@ -75,6 +102,7 @@ export default function Home() {
           flex-direction: row;
           min-height: 100vh;
           min-width: 100vw;
+          max-height: 100vh;
         }
         .sidebar {
           display: flex;

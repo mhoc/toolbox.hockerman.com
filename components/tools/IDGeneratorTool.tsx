@@ -1,4 +1,4 @@
-import { FingerprintOutlined } from "@mui/icons-material";
+import { Fingerprint } from "@mui/icons-material";
 import { Button, Slider, Sheet, Typography } from "@mui/joy";
 import * as nanoid from "nanoid";
 import { useState } from "react";
@@ -11,7 +11,7 @@ const generatorSheetSx = {
   flexDirection: "row",
   mb: 1,
   p: 2,
-  minWidth: "600px",
+  minWidth: "700px",
 };
 
 const IDGeneratorToolComponent = () => {
@@ -64,6 +64,6 @@ export const IDGeneratorTool: Tool = {
   category: "Randomness",
   component: IDGeneratorToolComponent,
   description: "generate a random ID",
-  icon: FingerprintOutlined,
+  icon: Fingerprint,
   name: "Random ID",
 };

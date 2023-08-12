@@ -13,25 +13,25 @@ export const PrivacyModal = ({ onClose, open }: PrivacyModalProps) => {
         <Typography level="h3" sx={{ mb: 1 }}>
           Your Privacy
         </Typography>
-        <Typography level="body2" sx={{ mb: 1 }}>
+        <Typography level="body-md" sx={{ mb: 1 }}>
           {
             "I built this mostly for myself, for fun. There are a lot of scattered tools like these around the internet. There are even some products which collect them together, free or otherwise. So, this one is mine; and you're welcome to use it."
           }
         </Typography>
-        <Typography level="body2" sx={{ mb: 1 }}>
+        <Typography level="body-md" sx={{ mb: 1 }}>
           {
-            "This website does not gather any analytics or user-identifiable data points beyond what is very foundationally necessary to, you know, be a website. I can see your IP address, country, etc. That's about it. This website employs no additional tracking, analytics packages, cookies, etc."
+            "This website does not gather many analytics or user-identifiable data points beyond what is very foundationally necessary to, you know, be a website. I can see your IP address, country, which pages you visit, etc. That's about it. I can't and don't want to see any of the information you enter."
           }
         </Typography>
-        <Typography level="body2" sx={{ mb: 3 }}>
+        <Typography level="body-md" sx={{ mb: 3 }}>
           {
-            "Unless otherwise noted within the page of a specific tool, this website makes no network requests beyond the initial page load. The data you enter into each tool stays within your browser, and the stuff the tools do is all done locally. Tools which require sending the data you enter to a remote source will clearly say so on the page, and the data won't be sent without explicit interaction from you."
+            "Unless required for the normal operation of a specific tool, this website makes no network requests beyond loading the page. Most tools are implemented in local javascript, and the data you enter never leaves your browser. Some tools naturally require sending the data you enter to a remote source; it will be obvious where this data is going, and the data won't be sent without explicit interaction from you."
           }
         </Typography>
         <Typography level="h3" sx={{ mb: 1 }}>
           Infrastructure
         </Typography>
-        <Typography level="body2" sx={{ mb: 1 }}>
+        <Typography level="body-md" sx={{ mb: 1 }}>
           This website is built using NextJS, and is hosted on Vercel.
           Cloudflare is involved for DNS, CDN, and various other things. The UI
           is mostly{" "}
@@ -39,7 +39,7 @@ export const PrivacyModal = ({ onClose, open }: PrivacyModalProps) => {
             href="https://mui.com/joy-ui/getting-started/overview"
             style={{ textDecoration: "none" }}
           >
-            <Typography color="primary" level="body2">
+            <Typography color="primary" level="body-md">
               {"MUI's Joy UI"}
             </Typography>
           </a>

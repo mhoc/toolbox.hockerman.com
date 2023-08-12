@@ -44,7 +44,9 @@ export default function Home() {
             </ListItem>
             {byCategory.map((category) => (
               <>
-                <ListSubheader>{category.category}</ListSubheader>
+                <ListSubheader key={category.category}>
+                  {category.category}
+                </ListSubheader>
                 {Object.values(category.tools).map((t) => (
                   <ListItem key={t.name}>
                     <ListItemButton
@@ -74,7 +76,7 @@ export default function Home() {
             }}
           >
             <Box>
-              <Typography level="body3">
+              <Typography level="body-xs">
                 Made with <Typography color="danger">{"<3"}</Typography>
                 {" by "}
                 <a
@@ -84,12 +86,12 @@ export default function Home() {
                   <Typography color="primary">hockerman.com</Typography>
                 </a>
               </Typography>
-              <Typography level="body3">in Indianapolis, IN</Typography>
+              <Typography level="body-xs">in Indianapolis, IN</Typography>
               <ListItemButton
                 onClick={() => setPrivacyModalOpen(true)}
-                sx={{ width: "70px" }}
+                sx={{ width: "80px" }}
               >
-                <Typography color="primary" level="body4">
+                <Typography color="primary" level="body-xs">
                   Your Privacy
                 </Typography>
               </ListItemButton>
@@ -122,10 +124,13 @@ export default function Home() {
         .sidebar {
           display: flex;
           flex-direction: column;
-          width: 300px;
-          max-width: 300px;
+          width: 320px;
+          min-width: 320px;
+          max-width: 320px;
         }
         .content {
+          max-height: 100vh;
+          overflow-y: scroll;
           padding: 32px;
         }
       `}</style>

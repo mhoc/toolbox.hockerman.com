@@ -1,4 +1,5 @@
 import { BaseEncodingTool } from "./BaseEncodingTool";
+import { DNSResolverTool } from "./DNSResolver/DNSResolver";
 import { IDGeneratorTool } from "./IDGeneratorTool";
 import { JWT } from "./JWT";
 
@@ -18,6 +19,7 @@ export interface Category {
 export class Toolset {
   public static readonly ALL_TOOLS: Tool[] = [
     BaseEncodingTool,
+    DNSResolverTool,
     JWT,
     IDGeneratorTool,
   ];

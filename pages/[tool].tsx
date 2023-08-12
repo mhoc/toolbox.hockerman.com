@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 import { BasePage } from "@/components/layouts/BasePage";
-import { useRouter } from "next/router";
 
 export default function Home() {
   const router = useRouter();

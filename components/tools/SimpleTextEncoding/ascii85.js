@@ -5,7 +5,7 @@
  * @param a
  * @returns
  */
-export function encode_ascii85(a: string) {
+export function encode_ascii85(a) {
   var b, c, d, e, f, g, h, i, j, k;
   for (
     !/[^\x00-\xFF]/.test(a),
@@ -42,7 +42,7 @@ export function encode_ascii85(a: string) {
   );
 }
 
-export function decode_ascii85(a: string) {
+export function decode_ascii85(a) {
   var c,
     d,
     e,

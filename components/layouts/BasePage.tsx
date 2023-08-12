@@ -15,6 +15,7 @@ import { useState } from "react";
 import { useToolset } from "../hooks/useToolset";
 import { GitHub, KeyboardArrowRightOutlined } from "@mui/icons-material";
 import { PrivacyModal } from "./PrivacyModal";
+import { useRouter } from "next/router";
 
 interface Props {
   selectedToolKey: string;
@@ -22,6 +23,7 @@ interface Props {
 }
 
 export const BasePage = ({ selectedToolKey, setSelectedToolKey }: Props) => {
+  const router = useRouter();
   const [search, setSearch] = useState("");
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const allToolset = useToolset();
@@ -78,7 +80,7 @@ export const BasePage = ({ selectedToolKey, setSelectedToolKey }: Props) => {
             }}
           >
             <Box>
-              <Typography level="body-xs">
+              <Typography color="neutral" level="body-xs">
                 Made with <Typography color="danger">{"<3"}</Typography>
                 {" by "}
                 <a
@@ -88,7 +90,9 @@ export const BasePage = ({ selectedToolKey, setSelectedToolKey }: Props) => {
                   <Typography color="primary">hockerman.com</Typography>
                 </a>
               </Typography>
-              <Typography level="body-xs">in Indianapolis, IN</Typography>
+              <Typography color="neutral" level="body-xs">
+                in Indianapolis, IN
+              </Typography>
               <ListItemButton
                 onClick={() => setPrivacyModalOpen(true)}
                 sx={{ width: "80px" }}
@@ -99,9 +103,11 @@ export const BasePage = ({ selectedToolKey, setSelectedToolKey }: Props) => {
               </ListItemButton>
             </Box>
             <Box sx={{ flexGrow: 1 }} />
-            <Typography color="neutral">
-              <GitHub />
-            </Typography>
+            <a href="https://github.com/mhoc/toolbox.hockerman.com">
+              <Typography color="neutral">
+                <GitHub />
+              </Typography>
+            </a>
           </Box>
         </div>
         <Divider orientation="vertical" />

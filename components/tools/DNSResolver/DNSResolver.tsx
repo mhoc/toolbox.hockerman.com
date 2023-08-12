@@ -125,4 +125,5 @@ export const DNSResolverTool: Tool = {
   description: "resolve a hostname into resource records using dns",
   icon: DnsOutlined,
   name: "DNS Resolver",
+  key: "dns-resolver",
 };

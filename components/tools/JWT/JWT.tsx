@@ -60,4 +60,5 @@ export const JWT: Tool = {
   description: "decode the content of a jwt",
   icon: TokenOutlined,
   name: "JWT",
+  key: "jwt",
 };

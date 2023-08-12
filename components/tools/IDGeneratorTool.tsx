@@ -66,4 +66,5 @@ export const IDGeneratorTool: Tool = {
   description: "generate a random ID",
   icon: Fingerprint,
   name: "Random ID",
+  key: "random-id",
 };

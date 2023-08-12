@@ -9,6 +9,7 @@ export interface Tool {
   description: string;
   icon: React.FC<any>;
   name: string;
+  key: string;
 }
 
 export interface Category {
@@ -49,8 +50,8 @@ export class Toolset {
     }));
   }
 
-  public byName(name: string): Tool | undefined {
-    return this._tools.find((t) => t.name === name);
+  public byKey(key: string): Tool | undefined {
+    return this._tools.find((t) => t.key === key);
   }
 
   public search(searchTerm: string): Toolset {
@@ -60,7 +61,8 @@ export class Toolset {
         return (
           t.category.toLowerCase().includes(searchTermLc) ||
           t.description.toLowerCase().includes(searchTermLc) ||
-          t.name.toLowerCase().includes(searchTermLc)
+          t.name.toLowerCase().includes(searchTermLc) ||
+          t.key.toLowerCase().includes(searchTermLc)
         );
       })
     );

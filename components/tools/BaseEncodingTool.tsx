@@ -54,11 +54,11 @@ const BaseEncodingToolComponent = () => {
           </Typography>
           <Box sx={resultsRowSx}>
             <Sheet sx={resultsSheetSx}>
-              <Typography level="body2">Encoded To</Typography>
+              <Typography level="body-md">Encoded To</Typography>
               <Typography sx={contentTypographySx}>{toBase64}</Typography>
             </Sheet>
             <Sheet sx={resultsSheetSx}>
-              <Typography level="body2">Decoded From</Typography>
+              <Typography level="body-md">Decoded From</Typography>
               <Typography sx={contentTypographySx}>{fromBase64}</Typography>
             </Sheet>
           </Box>
@@ -74,4 +74,5 @@ export const BaseEncodingTool: Tool = {
   description: "encode ",
   icon: AcUnit,
   name: "BaseN",
+  key: "base-n",
 };

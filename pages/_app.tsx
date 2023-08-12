@@ -5,18 +5,7 @@ import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   const theme = extendTheme({
-    components: {
-      JoyListItemButton: {
-        defaultProps: {
-          sx: {
-            backgroundColor: "rgba(0,0,0,0)",
-            "&:selected": {
-              backgroundColor: "white",
-            },
-          },
-        },
-      },
-    },
+    components: {},
     colorSchemes: {
       light: {
         palette: {},

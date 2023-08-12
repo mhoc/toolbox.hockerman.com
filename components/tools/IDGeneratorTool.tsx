@@ -21,10 +21,12 @@ const IDGeneratorToolComponent = () => {
 
   const genUUIDv4 = () => {
     const id = crypto.randomUUID();
+    navigator.clipboard.writeText(id);
     setGUuidv4(id);
   };
   const genNanoid = (len: number) => {
     const id = nanoid.nanoid(len);
+    navigator.clipboard.writeText(id);
     setNanoid(id);
   };
 

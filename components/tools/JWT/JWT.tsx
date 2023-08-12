@@ -28,6 +28,7 @@ const JWTComponent = () => {
     <Box sx={{ width: "100%" }}>
       <Typography>Paste your JWT here:</Typography>
       <Textarea
+        autoFocus
         maxRows={4}
         minRows={4}
         onChange={(e) => setUserJwt(e.target.value)}

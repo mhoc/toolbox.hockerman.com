@@ -41,6 +41,7 @@ const BaseEncodingToolComponent = () => {
     <Box sx={{ width: "100%" }}>
       <Typography>Your Text:</Typography>
       <Textarea
+        autoFocus
         maxRows={4}
         minRows={4}
         onChange={(e) => setText(e.target.value)}

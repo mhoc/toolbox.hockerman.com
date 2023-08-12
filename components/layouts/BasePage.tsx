@@ -47,10 +47,8 @@ export const BasePage = ({ selectedToolKey, setSelectedToolKey }: Props) => {
               </ListItemContent>
             </ListItem>
             {byCategory.map((category) => (
-              <>
-                <ListSubheader key={category.category}>
-                  {category.category}
-                </ListSubheader>
+              <div key={category.category}>
+                <ListSubheader>{category.category}</ListSubheader>
                 {Object.values(category.tools).map((t) => (
                   <ListItem key={t.name}>
                     <ListItemButton
@@ -67,7 +65,7 @@ export const BasePage = ({ selectedToolKey, setSelectedToolKey }: Props) => {
                     </ListItemButton>
                   </ListItem>
                 ))}
-              </>
+              </div>
             ))}
           </List>
           <Divider />

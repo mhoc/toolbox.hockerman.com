@@ -16,7 +16,7 @@ import { useGetRecordsForType } from "./useGetRecordsForType";
 import { DNSResolverRecordList } from "./DNSResolverRecordList";
 
 const DNSResolverToolComponent = () => {
-  const [domainName, setDomainName] = useState("hockerman.com");
+  const [domainName, setDomainName] = useState("");
   const [resolver, setResolver] = useState(
     "https://cloudflare-dns.com/dns-query"
   );

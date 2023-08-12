@@ -1,6 +1,7 @@
-import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
 import CssBaseline from "@mui/joy/CssBaseline";
+import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   const theme = extendTheme({
@@ -77,6 +78,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Head>
+        <title>Toolbox</title>
+        <link rel="icon" href="/favicon.svg" type="image/svg" />
+      </Head>
       <CssVarsProvider defaultMode="dark" modeStorageKey="mode" theme={theme}>
         <CssBaseline />
         <Component {...pageProps} />

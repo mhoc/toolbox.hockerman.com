@@ -19,10 +19,10 @@ export interface Category {
 
 export class Toolset {
   public static readonly ALL_TOOLS: Tool[] = [
-    SimpleTextEncodingTool,
     DNSResolverTool,
-    JWT,
     IDGeneratorTool,
+    JWT,
+    SimpleTextEncodingTool,
   ];
 
   private readonly _tools: Tool[];
@@ -44,10 +44,14 @@ export class Toolset {
         categoryMap[tool.category] = [tool];
       }
     }
-    return Object.keys(categoryMap).map((cat) => ({
-      category: cat,
-      tools: categoryMap[cat],
-    }));
+    return Object.keys(categoryMap)
+      .map((cat) => ({
+        category: cat,
+        tools: categoryMap[cat],
+      }))
+      .sort((a, b) => {
+        return a.category.localeCompare(b.category);
+      });
   }
 
   public byKey(key: string): Tool | undefined {

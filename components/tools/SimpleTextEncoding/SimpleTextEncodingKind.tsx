@@ -20,14 +20,19 @@ export const SimpleTextEncodingKind = ({ kind, to, from }: Props) => {
         }}
       >
         <Sheet
+          onClick={() => {
+            navigator.clipboard.writeText(to);
+          }}
           sx={{
+            maxWidth: "400px",
             mr: 1,
             p: 1,
-            maxWidth: "400px",
             width: "400px",
           }}
         >
-          <Typography level="body-md">Encoded To</Typography>
+          <Typography level="body-sm" sx={{ mb: 1 }}>
+            Encoded To
+          </Typography>
           <Typography
             sx={{
               fontFamily: "monospace",
@@ -39,6 +44,9 @@ export const SimpleTextEncodingKind = ({ kind, to, from }: Props) => {
           </Typography>
         </Sheet>
         <Sheet
+          onClick={() => {
+            navigator.clipboard.writeText(from);
+          }}
           sx={{
             mr: 1,
             p: 1,
@@ -46,7 +54,9 @@ export const SimpleTextEncodingKind = ({ kind, to, from }: Props) => {
             width: "400px",
           }}
         >
-          <Typography level="body-md">Decoded From</Typography>
+          <Typography level="body-sm" sx={{ mb: 1 }}>
+            Decoded From
+          </Typography>
           <Typography
             sx={{
               fontFamily: "monospace",

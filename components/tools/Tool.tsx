@@ -1,4 +1,5 @@
 import { DNSResolverTool } from "./DNSResolver/DNSResolver";
+import { HashingTool } from "./Hashing/Hashing";
 import { IDGeneratorTool } from "./IDGeneratorTool";
 import { JWT } from "./JWT";
 import { SimpleTextEncodingTool } from "./SimpleTextEncoding/SimpleTextEncoding";
@@ -20,6 +21,7 @@ export interface Category {
 export class Toolset {
   public static readonly ALL_TOOLS: Tool[] = [
     DNSResolverTool,
+    HashingTool,
     IDGeneratorTool,
     JWT,
     SimpleTextEncodingTool,

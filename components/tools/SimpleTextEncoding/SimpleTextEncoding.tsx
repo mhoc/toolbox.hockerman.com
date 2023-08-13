@@ -79,7 +79,7 @@ const SimpleTextEncodingToolComponent = () => {
 };
 
 export const SimpleTextEncodingTool: Tool = {
-  category: "Encoding / Decoding",
+  category: "Text",
   component: SimpleTextEncodingToolComponent,
   description: "encode and decode text from url encoding and base64",
   icon: AcUnit,

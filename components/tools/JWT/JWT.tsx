@@ -56,7 +56,7 @@ const JWTComponent = () => {
 };
 
 export const JWT: Tool = {
-  category: "Encoding / Decoding",
+  category: "Text",
   component: JWTComponent,
   description: "decode the content of a jwt",
   icon: TokenOutlined,

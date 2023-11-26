@@ -1,6 +1,6 @@
 import { DNSResolverTool } from "./DNSResolver/DNSResolver";
 import { HashingTool } from "./Hashing/Hashing";
-import { IDGeneratorTool } from "./IDGeneratorTool";
+import { IDGeneratorTool } from "./IDGenerator/IDGeneratorTool";
 import { JWT } from "./JWT";
 import { EncodingTool } from "./Encoding/Encoding";
 

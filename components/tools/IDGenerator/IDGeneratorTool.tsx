@@ -3,7 +3,7 @@ import { Button, Slider, Sheet, Typography } from "@mui/joy";
 import * as nanoid from "nanoid";
 import { useState } from "react";
 
-import { Tool } from "./Tool";
+import { Tool } from "../Tool";
 
 const generatorSheetSx = {
   alignItems: "center",

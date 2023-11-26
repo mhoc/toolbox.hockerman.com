@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { Tool } from "../Tool";
 import { decode_ascii85, encode_ascii85 } from "./ascii85";
-import { SimpleTextEncodingKind } from "./EncodingKind";
+import { EncodingKind } from "./EncodingKind";
 
 const EncodingToolComponent = () => {
   const [text, setText] = useState("");
@@ -61,17 +61,9 @@ const EncodingToolComponent = () => {
       />
       {text.length > 0 && (
         <>
-          <SimpleTextEncodingKind kind="uri" to={toUrl} from={fromUrl} />
-          <SimpleTextEncodingKind
-            kind="base64"
-            to={toBase64}
-            from={fromBase64}
-          />
-          <SimpleTextEncodingKind
-            kind="ascii85"
-            to={toAscii85}
-            from={fromAscii85}
-          />
+          <EncodingKind kind="uri" to={toUrl} from={fromUrl} />
+          <EncodingKind kind="base64" to={toBase64} from={fromBase64} />
+          <EncodingKind kind="ascii85" to={toAscii85} from={fromAscii85} />
         </>
       )}
     </Box>

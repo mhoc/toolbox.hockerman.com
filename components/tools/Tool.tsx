@@ -1,3 +1,4 @@
+import { ColorContrastTool } from "./ColorContrast/ColorContrastTool";
 import { DNSResolverTool } from "./DNSResolver/DNSResolver";
 import { HashingTool } from "./Hashing/Hashing";
 import { IDGeneratorTool } from "./IDGenerator/IDGeneratorTool";
@@ -20,6 +21,7 @@ export interface Category {
 
 export class Toolset {
   public static readonly ALL_TOOLS: Tool[] = [
+    ColorContrastTool,
     DNSResolverTool,
     EncodingTool,
     HashingTool,

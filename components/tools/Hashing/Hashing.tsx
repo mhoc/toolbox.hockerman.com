@@ -2,7 +2,7 @@ import { Tag } from "@mui/icons-material";
 import { Box, Textarea, Typography } from "@mui/joy";
 import jsmd2 from "js-md2";
 import jsmd4 from "js-md4";
-import jsmd5 from "js-md5";
+import { md5 as jsmd5 } from "js-md5";
 import * as hashjs from "hash.js";
 import { useEffect, useState } from "react";
 

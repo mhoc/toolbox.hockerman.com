@@ -1,9 +1,10 @@
 import { ColorContrastTool } from "./ColorContrast/ColorContrastTool";
 import { DNSResolverTool } from "./DNSResolver/DNSResolver";
+import { EncodingTool } from "./Encoding/Encoding";
 import { HashingTool } from "./Hashing/Hashing";
 import { IDGeneratorTool } from "./IDGenerator/IDGeneratorTool";
 import { JWT } from "./JWT";
-import { EncodingTool } from "./Encoding/Encoding";
+import { RandomNumberGeneratorTool } from "./RandomNumberGenerator/RandomNumberGenerator";
 
 export interface Tool {
   category: string;
@@ -27,6 +28,7 @@ export class Toolset {
     HashingTool,
     IDGeneratorTool,
     JWT,
+    RandomNumberGeneratorTool,
   ];
 
   private readonly _tools: Tool[];

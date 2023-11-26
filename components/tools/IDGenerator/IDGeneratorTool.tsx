@@ -1,5 +1,5 @@
-import { CopyAllRounded, Fingerprint } from "@mui/icons-material";
-import { Button, Slider, Sheet, Typography, IconButton } from "@mui/joy";
+import { Fingerprint } from "@mui/icons-material";
+import { Button, Slider, Sheet, Typography } from "@mui/joy";
 import * as nanoid from "nanoid";
 import { useState } from "react";
 import { uuidv7 as createUUIDv7 } from "uuidv7";

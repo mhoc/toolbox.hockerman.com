@@ -19,10 +19,10 @@
     "hash.js": "^1.1.7",
     "js-md2": "^0.2.2",
     "js-md4": "^0.3.2",
-    "js-md5": "^0.7.3",
-    "jwt-decode": "^3.1.2",
-    "nanoid": "^4.0.2",
-    "next": "^13.4.13",
+    "js-md5": "^0.8.3",
+    "jwt-decode": "^4.0.0",
+    "nanoid": "^5.0.3",
+    "next": "^14.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "^5.1.6"
@@ -33,6 +33,6 @@
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "eslint": "^8.47.0",
-    "eslint-config-next": "^13.4.13"
+    "eslint-config-next": "^14.0.3"
   }
 }

@@ -1,6 +1,6 @@
 import { TokenOutlined } from "@mui/icons-material";
 import { Box, Textarea, Typography } from "@mui/joy";
-import jwtdecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 
 import { Tool } from "../Tool";
@@ -17,8 +17,8 @@ const JWTComponent = () => {
   useEffect(() => {
     try {
       setError("");
-      setUserJwtHeader(jwtdecode(userJwt, { header: true }));
-      setUserJwtBody(jwtdecode(userJwt));
+      setUserJwtHeader(jwtDecode(userJwt, { header: true }));
+      setUserJwtBody(jwtDecode(userJwt));
     } catch (err: any) {
       setError(`Invalidly formatting JWT (${err.message})`);
     }

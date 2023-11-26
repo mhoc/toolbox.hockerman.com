@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 
 import { Tool } from "../Tool";
 import { decode_ascii85, encode_ascii85 } from "./ascii85";
-import { SimpleTextEncodingKind } from "./SimpleTextEncodingKind";
+import { SimpleTextEncodingKind } from "./EncodingKind";
 
-const SimpleTextEncodingToolComponent = () => {
+const EncodingToolComponent = () => {
   const [text, setText] = useState("");
   const [toUrl, setToUrl] = useState("");
   const [fromUrl, setFromUrl] = useState("");
@@ -78,11 +78,11 @@ const SimpleTextEncodingToolComponent = () => {
   );
 };
 
-export const SimpleTextEncodingTool: Tool = {
+export const EncodingTool: Tool = {
   category: "Text",
-  component: SimpleTextEncodingToolComponent,
+  component: EncodingToolComponent,
   description: "encode and decode text from url encoding and base64",
   icon: AcUnit,
-  name: "Simple Text Encoding",
-  key: "simple-text-encoding",
+  name: "Encoding",
+  key: "encoding",
 };

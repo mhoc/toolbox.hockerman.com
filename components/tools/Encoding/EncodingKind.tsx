@@ -6,7 +6,7 @@ export interface Props {
   from: string;
 }
 
-export const SimpleTextEncodingKind = ({ kind, to, from }: Props) => {
+export const EncodingKind = ({ kind, to, from }: Props) => {
   return (
     <Box>
       <Typography level="h3" sx={{ mt: 2 }}>

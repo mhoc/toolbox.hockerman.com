@@ -61,7 +61,7 @@ const IDGeneratorToolComponent = () => {
 };
 
 export const IDGeneratorTool: Tool = {
-  category: "Randomness",
+  category: "Entropy",
   component: IDGeneratorToolComponent,
   description: "generate a random ID",
   icon: Fingerprint,

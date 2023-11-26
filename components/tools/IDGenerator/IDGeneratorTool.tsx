@@ -1,9 +1,11 @@
-import { Fingerprint } from "@mui/icons-material";
-import { Button, Slider, Sheet, Typography } from "@mui/joy";
+import { CopyAllRounded, Fingerprint } from "@mui/icons-material";
+import { Button, Slider, Sheet, Typography, IconButton } from "@mui/joy";
 import * as nanoid from "nanoid";
 import { useState } from "react";
+import { uuidv7 as createUUIDv7 } from "uuidv7";
 
 import { Tool } from "../Tool";
+import { CopyButton } from "@/components/common/CopyButton";
 
 const generatorSheetSx = {
   alignItems: "center",
@@ -15,15 +17,20 @@ const generatorSheetSx = {
 };
 
 const IDGeneratorToolComponent = () => {
-  const [gUuidv4, setGUuidv4] = useState(crypto.randomUUID());
+  const [uuidv4, setUUIDv4] = useState(crypto.randomUUID());
+  const [uuidv7, setUUIDv7] = useState(createUUIDv7());
   const [nanoidLength, setNanoidLength] = useState(8);
   const [gNanoid, setNanoid] = useState(nanoid.nanoid(nanoidLength));
 
-  const genUUIDv4 = () => {
+  const refreshUUIDv4 = () => {
     const id = crypto.randomUUID();
-    setGUuidv4(id);
+    setUUIDv4(id);
   };
-  const genNanoid = (len: number) => {
+  const refreshUUIDv7 = () => {
+    const id = createUUIDv7();
+    setUUIDv7(id);
+  };
+  const refershNanoid = (len: number) => {
     const id = nanoid.nanoid(len);
     setNanoid(id);
   };
@@ -31,13 +38,23 @@ const IDGeneratorToolComponent = () => {
   return (
     <div style={{ width: "100%" }}>
       <Sheet sx={generatorSheetSx} variant="outlined">
-        <Button onClick={genUUIDv4} sx={{ mr: 2 }}>
+        <Button onClick={refreshUUIDv4} sx={{ mr: 2 }}>
           UUIDv4
         </Button>
-        <Typography sx={{ fontFamily: "monospace" }}>{gUuidv4}</Typography>
+        <Typography sx={{ fontFamily: "monospace" }}>{uuidv4}</Typography>
+        <div style={{ flexGrow: 1 }} />
+        <CopyButton text={uuidv4} />
       </Sheet>
       <Sheet sx={generatorSheetSx} variant="outlined">
-        <Button onClick={() => genNanoid(nanoidLength)} sx={{ mr: 2 }}>
+        <Button onClick={refreshUUIDv7} sx={{ mr: 2 }}>
+          UUIDv7
+        </Button>
+        <Typography sx={{ fontFamily: "monospace" }}>{uuidv7}</Typography>
+        <div style={{ flexGrow: 1 }} />
+        <CopyButton text={uuidv7} />
+      </Sheet>
+      <Sheet sx={generatorSheetSx} variant="outlined">
+        <Button onClick={() => refershNanoid(nanoidLength)} sx={{ mr: 2 }}>
           nanoid
         </Button>
         <Slider
@@ -46,7 +63,7 @@ const IDGeneratorToolComponent = () => {
           min={1}
           onChange={(e: any) => {
             setNanoidLength(e.target.value);
-            genNanoid(e.target.value);
+            refershNanoid(e.target.value);
           }}
           value={nanoidLength}
           sx={{ mr: 1, width: "150px" }}
@@ -55,6 +72,8 @@ const IDGeneratorToolComponent = () => {
           ({nanoidLength})
         </Typography>
         <Typography sx={{ fontFamily: "monospace" }}>{gNanoid}</Typography>
+        <div style={{ flexGrow: 1 }} />
+        <CopyButton text={gNanoid} />
       </Sheet>
     </div>
   );

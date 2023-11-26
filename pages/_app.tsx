@@ -13,7 +13,6 @@ export default function App({ Component, pageProps }: AppProps) {
       dark: {
         palette: {
           background: {
-            // body: "#181016",
             body: "#0C080B",
             surface: "#251822",
             popup: "#31202D",

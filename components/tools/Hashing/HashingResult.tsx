@@ -1,4 +1,5 @@
-import { Sheet, Typography } from "@mui/joy";
+import { CopyButton } from "@/components/common/CopyButton";
+import { Box, Sheet, Typography } from "@mui/joy";
 
 export interface Props {
   kind: string;
@@ -19,7 +20,18 @@ export const HashingResult = ({ kind, value }: Props) => {
         p: 1,
       }}
     >
-      <Typography level="h3">{kind}</Typography>
+      <Box
+        sx={{
+          alignItems: "center",
+          display: "flex",
+          flexDirection: "row",
+          mb: 1,
+        }}
+      >
+        <Typography level="h3">{kind}</Typography>
+        <Box sx={{ flexGrow: 1 }} />
+        <CopyButton text={value} />
+      </Box>
       <Typography sx={{ overflowWrap: "anywhere" }}>{value}</Typography>
     </Sheet>
   );

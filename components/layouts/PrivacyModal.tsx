@@ -15,7 +15,7 @@ export const PrivacyModal = ({ onClose, open }: PrivacyModalProps) => {
         </Typography>
         <Typography level="body-md" sx={{ mb: 1 }}>
           {
-            "I built this mostly for myself, for fun. There are a lot of scattered tools like these around the internet. There are even some products which collect them together, free or otherwise. So, this one is mine; and you're welcome to use it."
+            "I built this mostly for myself for fun. There are a lot of scattered tools like these around the internet. There are even some products which collect them together, free or otherwise. So, this one is mine; and you're welcome to use it."
           }
         </Typography>
         <Typography level="body-md" sx={{ mb: 1 }}>

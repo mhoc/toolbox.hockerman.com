@@ -1,3 +1,4 @@
+import { CopyButton } from "@/components/common/CopyButton";
 import { Box, Sheet, Typography } from "@mui/joy";
 
 export interface Props {
@@ -30,9 +31,15 @@ export const EncodingKind = ({ kind, to, from }: Props) => {
             width: "400px",
           }}
         >
-          <Typography level="body-sm" sx={{ mb: 1 }}>
-            Encoded To
-          </Typography>
+          <Box
+            sx={{ alignItems: "center", display: "flex", flexDirection: "row" }}
+          >
+            <Typography level="body-sm" sx={{ mb: 1 }}>
+              Encoded To
+            </Typography>
+            <Box sx={{ flexGrow: 1 }} />
+            <CopyButton text={to} />
+          </Box>
           <Typography
             sx={{
               fontFamily: "monospace",
@@ -54,9 +61,15 @@ export const EncodingKind = ({ kind, to, from }: Props) => {
             width: "400px",
           }}
         >
-          <Typography level="body-sm" sx={{ mb: 1 }}>
-            Decoded From
-          </Typography>
+          <Box
+            sx={{ alignItems: "center", display: "flex", flexDirection: "row" }}
+          >
+            <Typography level="body-sm" sx={{ mb: 1 }}>
+              Decoded From
+            </Typography>
+            <Box sx={{ flexGrow: 1 }} />
+            <CopyButton text={to} />
+          </Box>
           <Typography
             sx={{
               fontFamily: "monospace",

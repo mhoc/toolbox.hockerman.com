@@ -7,13 +7,14 @@ import {
   Option,
   Select,
   Sheet,
+  Table,
   Typography,
 } from "@mui/joy";
 import { useState } from "react";
 
 import { Tool } from "../Tool";
+import { DNSResolverRecord } from "./DNSResolverRecord";
 import { useGetRecordsForType } from "./useGetRecordsForType";
-import { DNSResolverRecordList } from "./DNSResolverRecordList";
 
 const DNSResolverToolComponent = () => {
   const [domainName, setDomainName] = useState("");
@@ -56,7 +57,16 @@ const DNSResolverToolComponent = () => {
         </Typography>
         <Input
           autoFocus
-          onChange={(e) => setDomainName(e.target.value.toLowerCase())}
+          onChange={(e) => {
+            const v = e.target.value;
+            if (v.startsWith("https://") && v.length > 9) {
+              setDomainName(v.slice(8));
+            } else if (v.startsWith("http://") && v.length > 8) {
+              setDomainName(v.slice(7));
+            } else {
+              setDomainName(v);
+            }
+          }}
           onKeyDown={(e) => e.key === "Enter" && getAll()}
           placeholder="Domain Name"
           sx={{ mb: 1 }}
@@ -111,10 +121,42 @@ const DNSResolverToolComponent = () => {
           {anyLoading ? "Resolving..." : "Resolve"}
         </Button>
       </Sheet>
-      <DNSResolverRecordList records={aRecords} type="A" />
-      <DNSResolverRecordList records={aaaaRecords} type="AAAA" />
-      <DNSResolverRecordList records={mxRecords} type="MX" />
-      <DNSResolverRecordList records={txtRecords} type="TXT" />
+      {(aRecords || aaaaRecords || mxRecords || txtRecords) && (
+        <Table sx={{ maxWidth: "800px" }}>
+          <thead>
+            <tr>
+              <th>Record</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            {(aRecords ?? []).map((record: any) => (
+              <DNSResolverRecord
+                key={`${record.type}${record.data}`}
+                record={record}
+              />
+            ))}
+            {(aaaaRecords ?? []).map((record: any) => (
+              <DNSResolverRecord
+                key={`${record.type}${record.data}`}
+                record={record}
+              />
+            ))}
+            {(mxRecords ?? []).map((record: any) => (
+              <DNSResolverRecord
+                key={`${record.type}${record.data}`}
+                record={record}
+              />
+            ))}
+            {(txtRecords ?? []).map((record: any) => (
+              <DNSResolverRecord
+                key={`${record.type}${record.data}`}
+                record={record}
+              />
+            ))}
+          </tbody>
+        </Table>
+      )}
     </Box>
   );
 };

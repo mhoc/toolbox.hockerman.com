@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 
 import { Tool } from "../Tool";
 import { calculateContrast } from "./ColorContrastUtil";
+import { HexColorTextField } from "@/components/common/HexColorTextField";
 
 const ColorContrastToolComponent = () => {
   const [foreground, setForeground] = useState("");
   const [background, setBackground] = useState("");
   const [contrast, setContrast] = useState<number | undefined>(undefined);
   useEffect(() => {
-    if (foreground.length > 0 && background.length > 0) {
+    if (foreground.length === 7 && background.length === 7) {
       try {
         const _contrast = calculateContrast(foreground, background);
         if (typeof _contrast === "number" && !isNaN(_contrast)) {
@@ -22,29 +23,24 @@ const ColorContrastToolComponent = () => {
         console.error(err);
         setContrast(undefined);
       }
+    } else {
+      setContrast(undefined);
     }
   }, [foreground, background]);
   return (
     <div style={{ width: "100%" }}>
-      <Box mb={1}>
-        <Textarea
-          autoFocus
-          maxRows={1}
-          minRows={1}
-          onChange={(e) => setForeground(e.target.value)}
-          placeholder="Foreground"
-          sx={{ width: "200px" }}
-          value={foreground}
+      <Box sx={{ mb: 1 }}>
+        <HexColorTextField
+          onChange={setBackground}
+          placeholder="Background"
+          value={background}
         />
       </Box>
-      <Box mb={1}>
-        <Textarea
-          maxRows={1}
-          minRows={1}
-          onChange={(e) => setBackground(e.target.value)}
-          placeholder="Background"
-          sx={{ width: "200px" }}
-          value={background}
+      <Box sx={{ mb: 1 }}>
+        <HexColorTextField
+          onChange={setForeground}
+          placeholder="Foreground"
+          value={foreground}
         />
       </Box>
       {typeof contrast !== "undefined" && (
